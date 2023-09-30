@@ -33,7 +33,9 @@ fn calculate_gravitational_force(particle1: &Particle, particle2: &Particle) -> 
     let force_magnitude: f64 = (G * particle1.mass * particle2.mass) / (distance * distance);
 
     let velocity: f64 = (G * particle2.mass / distance).sqrt();
-    println!("V = {}", velocity);
+    println!("v = {}", velocity);
+
+    println!("Test");
 
     force_magnitude
 
