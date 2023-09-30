@@ -18,7 +18,6 @@ fn calculate_gravitational_force(particle1: &Particle, particle2: &Particle) -> 
 
 
     println!("vector = {:?}", &v[0]);
-    print!("Test");
 
     // calculate the distance between the two particles (a^2 + b^2 = c^2)
     let distance: f64 = (&v[0] * &v[0] + &v[1] * &v[1]).sqrt();
