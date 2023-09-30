@@ -40,11 +40,13 @@ fn calculate_gravitational_force(particle1: &Particle, particle2: &Particle) -> 
     
 }
 
-fn kosmische_geschwindigkeiten(particle1: &Particle, particle2: &Particle) {
+fn kosmische_geschwindigkeiten(particle1: &Particle, particle2: &Particle) -> f64 {
     const G: f64 = 6.6730e-11; 
 
     let velocity: f64 = (G * particle1.mass / particle1.radius_particle).sqrt();
-    println!("v = {}", velocity);
+    println!("v_1 = {}", velocity);
+
+    velocity
 }
 
 fn main() {
@@ -66,6 +68,7 @@ fn main() {
 
    
     let force_magnitude: f64 = calculate_gravitational_force(&particle1, &particle2);
+    let v_1 = kosmische_geschwindigkeiten(&particle1, &particle2);
 
     print!("Gravitationskraft: ({})", force_magnitude);
 }
