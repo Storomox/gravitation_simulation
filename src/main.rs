@@ -68,7 +68,7 @@ fn main() {
 
    
     let force_magnitude: f64 = calculate_gravitational_force(&particle1, &particle2);
-    let v_1 = kosmische_geschwindigkeiten(&particle1, &particle2);
+    kosmische_geschwindigkeiten(&particle1, &particle2);
 
     print!("Gravitationskraft: ({})", force_magnitude);
 }
