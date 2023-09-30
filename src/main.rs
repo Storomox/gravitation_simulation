@@ -1,8 +1,8 @@
 struct Particle {
     mass: f64,
     position: (f64, f64),
+    radius_particle: f64,
 }
-
 
 fn calculate_gravitational_force(particle1: &Particle, particle2: &Particle) -> f64 {
     // constante G, 6,6730*10^-11
@@ -22,6 +22,7 @@ fn calculate_gravitational_force(particle1: &Particle, particle2: &Particle) -> 
     // calculate the distance between the two particles (a^2 + b^2 = c^2)
     let distance: f64 = (&v[0] * &v[0] + &v[1] * &v[1]).sqrt();
 
+    println!("M = {}, m = {}", particle1.mass, particle2.mass);
     println!("r = {}" ,distance);
 
     // Avoid divisions by zero return zero force if particles are at the same position
@@ -32,27 +33,35 @@ fn calculate_gravitational_force(particle1: &Particle, particle2: &Particle) -> 
     // G * M * m / r^2 = Gravitationskraft
     let force_magnitude: f64 = (G * particle1.mass * particle2.mass) / (distance * distance);
 
-    let velocity: f64 = (G * particle2.mass / distance).sqrt();
-    println!("v = {}", velocity);
+    
 
-    println!("Test");
-    println!("askhdfauseyfksldfh");
     force_magnitude
 
     
 }
 
+fn kosmische_geschwindigkeiten(particle1: &Particle, particle2: &Particle) {
+    const G: f64 = 6.6730e-11; 
+
+    let velocity: f64 = (G * particle1.mass / particle1.radius_particle).sqrt();
+    println!("v = {}", velocity);
+}
+
 fn main() {
     
     let particle1: Particle = Particle {
-        mass: 2.0e12,
-        position: (0.0, 0.0),
+        // Beispiel Sonne
+        mass: 1.99e30, // Masse in Kg
+        position: (0.0, 0.0), // Position (0 | 0) -> Ursprung
+        radius_particle: 696342000.0, // Radius Sonne in m
     };
 
     
     let particle2: Particle = Particle {
-        mass: 1.0e12, // Masse in Kg
-        position: (0.0, 149598000e3) // Abstand in Meter,
+        // Beispiel Erde
+        mass: 5.97e24, // Masse in Kg
+        position: (0.0, 149598000e3), // Abstand in Meter,
+        radius_particle: 6371000.0, // Radius Erde in m
     };
 
    
