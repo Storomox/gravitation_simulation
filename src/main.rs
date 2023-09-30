@@ -43,16 +43,19 @@ fn calculate_gravitational_force(particle1: &Particle, particle2: &Particle) -> 
 }
 
 fn main() {
-    let particle2: Particle = Particle {
-        mass: 1.0e12, // Masse in Kg
+    
+    let particle1: Particle = Particle {
+        mass: 2.0e12,
         position: (0.0, 0.0),
     };
 
-    let particle1: Particle = Particle {
-        mass: 2.0e12,
-        position: (150.0, 150.0),
+    
+    let particle2: Particle = Particle {
+        mass: 1.0e12, // Masse in Kg
+        position: (0.0, 149598000e3) // Abstand in Meter,
     };
 
+   
     let force_magnitude: f64 = calculate_gravitational_force(&particle1, &particle2);
 
     print!("Gravitationskraft: ({})", force_magnitude);
