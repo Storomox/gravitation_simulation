@@ -1,5 +1,5 @@
 mod grav_force;
-mod kosmische_geschwindigkeiten;
+mod geschwindigkeiten;
 pub struct Particle {
     mass: f64,
     position: (f64, f64),
@@ -26,7 +26,7 @@ fn main() {
 
    
     let force_magnitude: f64 = grav_force::calculate_gravitational_force(&particle1, &particle2);
-    kosmische_geschwindigkeiten::calc(&particle1, &particle2);
+    geschwindigkeiten::calc(&particle1, &particle2);
 
     print!("Gravitationskraft: ({})", force_magnitude);
 }
